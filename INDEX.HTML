@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Learn HTML & CSS</title>
+
+<style>
+
+/* Basic Style */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* Header */
+.header {
+  background: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: red;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.search input {
+  padding: 10px;
+  width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search button {
+  padding: 10px 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Main Layout */
+.main {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: white;
+  min-height: 100vh;
+  padding: 15px;
+  flex-shrink: 0;
+}
+
+.sidebar h3 {
+  color: red;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #333;
+  border-radius: 5px;
+}
+
+.sidebar a:hover {
+  background: #eee;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 25px;
+  min-width: 0;
+}
+
+.welcome {
+  background: linear-gradient(120deg, #e53935, #ff7043);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.welcome h1 {
+  margin-top: 0;
+}
+
+/* Cards */
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #ddd;
+  scroll-margin-top: 80px;
+}
+
+.card h2 {
+  color: #d32f2f;
+}
+
+.card h3 {
+  color: #333;
+}
+
+code {
+  background: #eee;
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: #c62828;
+}
+
+pre {
+  background: #222;
+  color: #00ff90;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.example {
+  background: #e3f2fd;
+  padding: 15px;
+  border-left: 4px solid #2196f3;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #d32f2f;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 700px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .search {
+    width: 100%;
+    display: flex;
+  }
+
+  .search input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .sidebar h3 {
+    width: 100%;
+  }
+
+  .sidebar a {
+    padding: 8px;
+  }
+
+  .content {
+    padding: 12px;
+  }
+
+  .welcome {
+    padding: 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="header">
+
+  <div class="logo">📘 LearnCode</div>
+
+  <div class="search">
+    <input type="text" id="searchInput"
+    placeholder="Search HTML, CSS, Tags...">
+
+    <button onclick="searchTopic()">Search</button>
+  </div>
+
+  <div>👤 Student</div>
+
+</div>
+
+<div class="main">
+
+<!-- Sidebar -->
+<div class="sidebar">
+
+  <h3>📚 Learning Menu</h3>
+
+  <a href="#home">🏠 Home</a>
+  <a href="#html">HTML Introduction</a>
+  <a href="#structure">HTML Structure</a>
+  <a href="#tags">HTML Tags</a>
+  <a href="#attributes">HTML Attributes</a>
+  <a href="#css">CSS Introduction</a>
+  <a href="#selectors">CSS Selectors</a>
+  <a href="#properties">CSS Properties</a>
+  <a href="#types">Types of CSS</a>
+  <a href="#example">Practical Example</a>
+
+</div>
+
+<!-- Main Content -->
+<div class="content">
+
+<!-- Welcome -->
+<div class="welcome" id="home">
+
+  <h1>Welcome to LearnCode!</h1>
+
+  <p>
+    Learn HTML and CSS from Basic to Advanced.
+    Understand coding with simple examples.
+  </p>
+
+  <h3>Start Your Coding Journey Today 🚀</h3>
+
+</div>
+
+<!-- HTML Introduction -->
+<div class="card" id="html">
+
+  <h2>1. What is HTML?</h2>
+
+  <p>
+    HTML stands for HyperText Markup Language.
+    It is the standard markup language used to
+    create web pages.
+  </p>
+
+  <h3>Uses of HTML</h3>
+
+  <ul>
+    <li>Creating websites.</li>
+    <li>Adding headings and paragraphs.</li>
+    <li>Inserting images and videos.</li>
+    <li>Creating links and tables.</li>
+    <li>Building forms.</li>
+  </ul>
+
+</div>
+
+<!-- HTML Structure -->
+<div class="card" id="structure">
+
+  <h2>2. Basic Structure of HTML</h2>
+
+  <p>Every HTML document follows a basic structure.</p>
+
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;p&gt;Welcome to HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <h3>Explanation</h3>
+
+  <ul>
+    <li><code>&lt;!DOCTYPE html&gt;</code> – Declares HTML5.</li>
+    <li><code>&lt;html&gt;</code> – Root element of HTML.</li>
+    <li><code>&lt;head&gt;</code> – Contains page information.</li>
+    <li><code>&lt;title&gt;</code> – Sets the browser tab title.</li>
+    <li><code>&lt;body&gt;</code> – Contains visible page content.</li>
+  </ul>
+
+</div>
+
+<!-- HTML Tags -->
+<div class="card" id="tags">
+
+  <h2>3. Important HTML Tags</h2>
+
+  <table>
+    <tr>
+      <th>Tag</th>
+      <th>Use</th>
+    </tr>
+
+    <tr>
+      <td>&lt;h1&gt; to &lt;h6&gt;</td>
+      <td>Headings</td>
+    </tr>
+
+    <tr>
+      <td>&lt;p&gt;</td>
+      <td>Paragraph</td>
+    </tr>
+
+    <tr>
+      <td>&lt;br&gt;</td>
+      <td>Line Break</td>
+    </tr>
+
+    <tr>
+      <td>&lt;hr&gt;</td>
+      <td>Horizontal Line</td>
+    </tr>
+
+    <tr>
+      <td>&lt;b&gt;</td>
+      <td>Bold Text</td>
+    </tr>
+
+    <tr>
+      <td>&lt;i&gt;</td>
+      <td>Italic Text</td>
+    </tr>
+
+    <tr>
+      <td>&lt;u&gt;</td>
+      <td>Underline Text</td>
+    </tr>
+
+    <tr>
+      <td>&lt;img&gt;</td>
+      <td>Insert Image</td>
+    </tr>
+
+    <tr>
+      <td>&lt;a&gt;</td>
+      <td>Create Hyperlink</td>
+    </tr>
+
+    <tr>
+      <td>&lt;ul&gt;</td>
+      <td>Unordered List</td>
+    </tr>
+
+    <tr>
+      <td>&lt;ol&gt;</td>
+      <td>Ordered List</td>
+    </tr>
+
+    <tr>
+      <td>&lt;li&gt;</td>
+      <td>List Item</td>
+    </tr>
+
+    <tr>
+      <td>&lt;table&gt;</td>
+      <td>Create Table</td>
+    </tr>
+
+    <tr>
+      <td>&lt;form&gt;</td>
+      <td>Create Form</td>
+    </tr>
+
+    <tr>
+      <td>&lt;video&gt;</td>
+      <td>Insert Video</td>
+    </tr>
+
+  </table>
+
+</div>
+
+<!-- Attributes -->
+<div class="card" id="attributes">
+
+  <h2>4. HTML Attributes</h2>
+
+  <p>
+    Attributes provide additional information
+    about HTML elements.
+  </p>
+
+  <table>
+    <tr>
+      <th>Attribute</th>
+      <th>Meaning</th>
+    </tr>
+
+    <tr>
+      <td>href</td>
+      <td>Specifies a link destination.</td>
+    </tr>
+
+    <tr>
+      <td>src</td>
+      <td>Specifies an image or media source.</td>
+    </tr>
+
+    <tr>
+      <td>alt</td>
+      <td>Alternative text for an image.</td>
+    </tr>
+
+    <tr>
+      <td>width</td>
+      <td>Sets width.</td>
+    </tr>
+
+    <tr>
+      <td>height</td>
+      <td>Sets height.</td>
+    </tr>
+
+    <tr>
+      <td>id</td>
+      <td>Unique identifier.</td>
+    </tr>
+
+    <tr>
+      <td>class</td>
+      <td>Groups elements for styling.</td>
+    </tr>
+
+  </table>
+
+  <h3>Example</h3>
+
+  <pre><code>&lt;a href="https://www.google.com"&gt;
+  Visit Google
+&lt;/a&gt;</code></pre>
+
+</div>
+
+<!-- CSS Introduction -->
+<div class="card" id="css">
+
+  <h2>5. What is CSS?</h2>
+
+  <p>
+    CSS stands for Cascading Style Sheets.
+    It is used to style and design HTML documents.
+  </p>
+
+  <h3>Uses of CSS</h3>
+
+  <ul>
+    <li>Changing text color.</li>
+    <li>Setting background colors.</li>
+    <li>Adjusting font size.</li>
+    <li>Creating layouts.</li>
+    <li>Making websites responsive.</li>
+    <li>Adding borders and shadows.</li>
+  </ul>
+
+</div>
+
+<!-- CSS Selectors -->
+<div class="card" id="selectors">
+
+  <h2>6. CSS Selectors</h2>
+
+  <table>
+    <tr>
+      <th>Selector</th>
+      <th>Example</th>
+      <th>Meaning</th>
+    </tr>
+
+    <tr>
+      <td>Element</td>
+      <td>p { }</td>
+      <td>Selects all paragraphs.</td>
+    </tr>
+
+    <tr>
+      <td>Class</td>
+      <td>.box { }</td>
+      <td>Selects elements with class box.</td>
+    </tr>
+
+    <tr>
+      <td>ID</td>
+      <td>#title { }</td>
+      <td>Selects an element with ID title.</td>
+    </tr>
+
+    <tr>
+      <td>Universal</td>
+      <td>* { }</td>
+      <td>Selects all elements.</td>
+    </tr>
+
+    <tr>
+      <td>Hover</td>
+      <td>a:hover { }</td>
+      <td>Applies style on mouse hover.</td>
+    </tr>
+
+  </table>
+
+</div>
+
+<!-- CSS Properties -->
+<div class="card" id="properties">
+
+  <h2>7. Important CSS Properties</h2>
+
+  <table>
+    <tr>
+      <th>Property</th>
+      <th>Function</th>
+    </tr>
+
+    <tr>
+      <td>color</td>
+      <td>Changes text color.</td>
+    </tr>
+
+    <tr>
+      <td>background-color</td>
+      <td>Changes background color.</td>
+    </tr>
+
+    <tr>
+      <td>font-size</td>
+      <td>Changes text size.</td>
+    </tr>
+
+    <tr>
+      <td>font-family</td>
+      <td>Changes font style.</td>
+    </tr>
+
+    <tr>
+      <td>text-align</td>
+      <td>Aligns text.</td>
+    </tr>
+
+    <tr>
+      <td>margin</td>
+      <td>Creates space outside an element.</td>
+    </tr>
+
+    <tr>
+      <td>padding</td>
+      <td>Creates space inside an element.</td>
+    </tr>
+
+    <tr>
+      <td>border</td>
+      <td>Adds a border.</td>
+    </tr>
+
+    <tr>
+      <td>display</td>
+      <td>Controls element layout.</td>
+    </tr>
+
+    <tr>
+      <td>width</td>
+      <td>Sets element width.</td>
+    </tr>
+
+    <tr>
+      <td>height</td>
+      <td>Sets element height.</td>
+    </tr>
+
+  </table>
+
+</div>
+
+<!-- Types of CSS -->
+<div class="card" id="types">
+
+  <h2>8. Types of CSS</h2>
+
+  <h3>1. Inline CSS</h3>
+
+  <p>CSS written inside an HTML element.</p>
+
+  <pre><code>&lt;p style="color:red;"&gt;
+  Hello World
+&lt;/p&gt;</code></pre>
+
+  <h3>2. Internal CSS</h3>
+
+  <p>CSS written inside the style tag in the head section.</p>
+
+  <pre><code>&lt;style&gt;
+p {
+  color: blue;
+}
+&lt;/style&gt;</code></pre>
+
+  <h3>3. External CSS</h3>
+
+  <p>CSS written in a separate .css file.</p>
+
+  <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+
+</div>
+
+<!-- Practical Example -->
+<div class="card" id="example">
+
+  <h2>9. Practical HTML and CSS Example</h2>
+
+  <p>HTML and CSS can be combined to create attractive websites.</p>
+
+  <pre><code>&lt;h1 class="heading"&gt;
+  My First Website
+&lt;/h1&gt;
+
+&lt;p&gt;I am learning HTML and CSS.&lt;/p&gt;
+
+&lt;style&gt;
+.heading {
+  color: blue;
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+}
+&lt;/style&gt;</code></pre>
+
+  <div class="example">
+    <h2 style="color:blue; text-align:center;">
+      My First Website
+    </h2>
+
+    <p style="font-size:18px;">
+      I am learning HTML and CSS.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <h3>LearnCode 📘</h3>
+  <p>Learn HTML & CSS Step by Step</p>
+  <p>Created for Students | 2026</p>
+</footer>
+
+</div>
+</div>
+
+<!-- Search Function -->
+<script>
+
+function searchTopic() {
+
+  let input = document.getElementById("searchInput")
+    .value.toLowerCase().trim();
+
+  let cards = document.querySelectorAll(".card");
+
+  if (input === "") {
+    alert("Please enter a topic to search.");
+    return;
+  }
+
+  let found = false;
+
+  cards.forEach(function(card) {
+
+    if (card.innerText.toLowerCase().includes(input)) {
+
+      card.style.display = "block";
+
+      if (!found) {
+        card.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+        found = true;
+      }
+
+    } else {
+      card.style.display = "none";
+    }
+
+  });
+
+  if (!found) {
+    alert("Topic not found. Try another keyword.");
+    cards.forEach(card => card.style.display = "block");
+  }
+
+}
+
+document.getElementById("searchInput")
+.addEventListener("keydown", function(event) {
+
+  if (event.key === "Enter") {
+    searchTopic();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
